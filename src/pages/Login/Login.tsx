@@ -42,19 +42,19 @@ const Primary_Login = () => {
         <div className="text-red-500">{errors.email.message}</div>
       )}
       <Input {...register("password")} type="password" placeholder="Password" />
-      <Link className="fonteN fSenha" to="../ForgotP">
+      <Link  to="../ForgotP">
         Esqueceu a senha?
       </Link>
       {errors.password && (
         <div className="text-red-500">{errors.password.message}</div>
       )}
       <button disabled={isSubmitting} type="submit">
-        {isSubmitting ? "Loading..." : "Submit"}
+        {isSubmitting ? "Loading..." : "Entrar"}
       </button>
       {errors.root && <div className="text-red-500">{errors.root.message}</div>}
       <div>
         Não tem cadastro?{" "}
-        <Link className="fonteN cadastro" to="../Sign_Up">
+        <Link  to="../Sign_Up">
           Inscreva-se
         </Link>
       </div>
