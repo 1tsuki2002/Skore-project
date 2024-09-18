@@ -1,1 +1,1 @@
-export * from './menu-lateral/menu-lateral'
+export { };
