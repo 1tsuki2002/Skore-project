@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Input } from "@mui/material";
+import { Box, Input } from "@mui/material";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
@@ -36,29 +36,40 @@ const Primary_Login = () => {
   };
 
   return (
-    <form className="tutorial gap-2" onSubmit={handleSubmit(onSubmit)}>
-      <Input {...register("email")} type="text" placeholder="E-mail" />
-      {errors.email && (
-        <div className="text-red-500">{errors.email.message}</div>
-      )}
-      <Input {...register("password")} type="password" placeholder="Password" />
-      <Link className="fonteN fSenha" to="../ForgotP">
-        Esqueceu a senha?
-      </Link>
-      {errors.password && (
-        <div className="text-red-500">{errors.password.message}</div>
-      )}
-      <button disabled={isSubmitting} type="submit">
-        {isSubmitting ? "Loading..." : "Submit"}
-      </button>
-      {errors.root && <div className="text-red-500">{errors.root.message}</div>}
-      <div>
-        Não tem cadastro?{" "}
-        <Link className="fonteN cadastro" to="../Sign_Up">
-          Inscreva-se
-        </Link>
-      </div>
-    </form>
+    <Box
+      display="flex"
+      width="100vw"
+      height="100vh"
+      alignItems="center"
+      flexDirection="column"
+      justifyContent="center"
+    >
+      Skore
+      <form className="tutorial gap-2" onSubmit={handleSubmit(onSubmit)}>
+        <Input {...register("email")} type="text" placeholder="E-mail" />
+        {errors.email && (
+          <div className="text-red-500">{errors.email.message}</div>
+        )}
+        <Input
+          {...register("password")}
+          type="password"
+          placeholder="Password"
+        />
+        <Link to="../ForgotP">Esqueceu a senha?</Link>
+        {errors.password && (
+          <div className="text-red-500">{errors.password.message}</div>
+        )}
+        <button disabled={isSubmitting} type="submit">
+          {isSubmitting ? "Loading..." : "Entrar"}
+        </button>
+        {errors.root && (
+          <div className="text-red-500">{errors.root.message}</div>
+        )}
+        <div>
+          Não tem cadastro? <Link to="../Sign_Up">Inscreva-se</Link>
+        </div>
+      </form>
+    </Box>
   );
 };
 
